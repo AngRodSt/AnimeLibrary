@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="head">
+        <div class="left">
+            <img src="/static/AngRod_Search-removebg-preview.png" width="100 px">
+            <h1 class="Title">Angrod</h1>
+            <h3 class="SubTitle">Search</h3>  
+        </div>
+    </div>
+    <div class="main">
+        <form action="/index" method="post">
+            <div class="forms">
+                <input autocomplete="off" autofocus name="artist" placeholder="Name of the Anime" type="text">
+                <button type="submit">Search Anime</button> 
+            </div>
+        </form>
+        
+
+    </div>
+    <div class="foot">
+        <h5>Sthefany Angeles Rodriguez </h5>
+    </div>
+</body>
+</html>
