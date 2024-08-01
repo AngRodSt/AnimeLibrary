@@ -22,7 +22,7 @@
             </div>
         </form>
         <div class="back-anime">
-            <div class="picture-anime">
+            <div class="picture-anime" style="background-image:url(/static/images/black-clover-picture.jpg)">
                 <button class="button-description"><span class="button-text">+</span></button>
                 <h6 class="anime-title">Black Clover</h6>
                 <p class="anime-description">Asta y Yuno fueron abandonados juntos en la misma iglesia y han sido inseparables desde entonces. Cuando eran niños, prometieron que competirían entre sí para ver quién se convertiría en el próximo Emperador Magus.</p>
@@ -30,7 +30,17 @@
                 <button class="button-add">+</button>
 
             </div>
+            {%for animes in animes%}
+            <div class="picture-anime" style="background-image: url('data:image/jpeg;base64,{{image_base64}}');">
+                <button class="button-description"><span class="button-text">+</span></button>
+                <h6 class="anime-title">{{animes[1]}}</h6>
+                <p class="anime-description">Asta y Yuno fueron abandonados juntos en la misma iglesia y han sido inseparables desde entonces. Cuando eran niños, prometieron que competirían entre sí para ver quién se convertiría en el próximo Emperador Magus.</p>
+                <p class="anime-year">{{animes[7]}}</p>
+                <button class="button-add">+</button>
+            {%endfor%}
         </div>
+        </div>
+            
 
     </div>
     <div class="foot">
