@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}My Site{% endblock %}</title>
     <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
 </head>
 <body>
     <div class="head">
         <div class="left">
-            <img src="/static/AngRod_Search-removebg-preview.png" width="100 px">
+            <img src="/static/images/AngRod_Search-removebg-preview.png" width="100 px">
             <h1 class="Title">Angrod</h1>
             <h3 class="SubTitle">Search</h3>  
+        </div>
+        <div class="right">
+            <a href="/">Inicio</a>
+            <a href="/">Personal List</a>
+            <a href="/">Register</a>
+            <a href="/">Log in</a>
         </div>
     </div>
     <div class="main">

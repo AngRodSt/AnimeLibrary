@@ -1,28 +1,53 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/static/styles.css">
-</head>
+{% extends "layaout.html" %}
+
+{% block header %}
+    Index
+{% endblock %}
+
+{% block main %}
 <body>
-        <div class="head">
-            <div class="left">
-                <img src="/static/images/AngRod_Search-removebg-preview.png" width="100 px">
-                <h1 class="Title">Angrod</h1>
-                <h3 class="SubTitle">Search</h3>  
-            </div>
-        </div>
         <div class="main">
             <div class="back-anime-description">
-                <div class="picture-anime-description">
-                   
+                {% for anime in animes %}
+                <img class="picture-anime-description" style="background-image: url('data:image/jpeg;base64,{{anime[2]}}');">
+                <div class="block-information">
+                        <h6 class="anime-title-description">{{anime[1]}}</h6>
+                        <div class="div-description-description"><p class="anime-description-description">{{anime[9]}}</p></div>
+                    <div class="other-information">
+                        <p class="anime-year-description"><h3>Date: </h3>{{anime[7]}}</p>
+                        <p class="anime-episodes"> <h3>Episodes:</h3>{{anime[3]}}</p>
+                        <p class="anime-genre"> <h3>Genre:</h3>{{anime[4]}}</p>
+                        <p class="anime-rating"><h3>Rating:</h3>{{anime[8]}}</p>
+                        <p class="type"><h3>Type:</h3>{{anime[5]}}</p>
+                        <div class="add-div-description"><button id="button-add-description" class="button-add-description">+</button></div>
                 </div>
+               {% endfor %}
+
             </div>
         </div>
         <div class="foot">
             <h5>Sthefany Angeles Rodriguez </h5>
         </div>
-</body>
-</html>
+    </body>
+        <script>
+            document.addEventListener('DOMContentLoaded', (event) => {
+                const button = document.getElementById('button-add-description');
+
+                button.addEventListener('mouseover',()=>{
+                    button.style.transition = 'ease-in-out 0.3s';
+                    button.style.fontSize = '1rem'
+                    button.style.color = 'black';
+                    button.classList.add('button-hover');
+                    button.textContent = 'Add to List';
+                });
+
+                button.addEventListener('mouseout',()=>{
+                    button.textContent = '+';
+                    button.style.color = 'white';
+                    button.style.fontSize = '3rem';
+                    button.classList.remove('button-hover');
+                });
+            })
+        </script>
+
+{% endblock%}

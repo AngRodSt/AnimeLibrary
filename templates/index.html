@@ -1,40 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}My Site{% endblock %}</title>
-    <link rel="stylesheet" href="/static/styles.css">
-</head>
+{% extends "layaout.html" %}
+
+{% block header %}
+    Index
+{% endblock %}
+
+{% block main %}
 <body>
-    <div class="head">
-        <div class="left">
-            <img src="/static/images/AngRod_Search-removebg-preview.png" width="100 px">
-            <h1 class="Title">Angrod</h1>
-            <h3 class="SubTitle">Search</h3>  
-        </div>
     </div>
     <div class="main">
-        <form action="/index" method="post">
+        <form action="/" method="post">
             <div class="forms">
-                <input autocomplete="off" autofocus name="artist" placeholder="Name of the Anime" type="text">
+                <input id="anime-title" autofocus name="title" placeholder="Name of the Anime" type="text">
                 <button class="button-submit" type="submit">Search Anime</button> 
             </div>
-        </form>
+        
         <div class="back-anime">
-            <div class="picture-anime">
+            <!--
+            <div class="picture-anime" style="background-image:url(/static/images/black-clover-picture.jpg)">
                 <button class="button-description"><span class="button-text">+</span></button>
                 <h6 class="anime-title">Black Clover</h6>
-                <p class="anime-description">Asta y Yuno fueron abandonados juntos en la misma iglesia y han sido inseparables desde entonces. Cuando eran niños, prometieron que competirían entre sí para ver quién se convertiría en el próximo Emperador Magus.</p>
-                <p class="anime-year">2017–2021</p>
-                <button class="button-add">+</button>
-
+                <div class="div-description"><p class="anime-description">Asta y Yuno fueron abandonados juntos en la misma iglesia y han sido inseparables desde entonces. Cuando eran niños, prometieron que competirían entre sí para ver quién se convertiría en el próximo Emperador Magus.</p></div>
+                <div class="year-div"><p class="anime-year">2017–2021</p></div>
+                <div class="add-div"><button class="button-add">+</button></div>
+            
             </div>
+            -->
+            {%for anime in animes%}
+            <div class="picture-anime" style="background-image: url('data:image/jpeg;base64,{{anime[2]}}');">
+                <button type="button" class="button-description"><span class="button-text">+</span></button>
+                <h6 class="anime-title">{{anime[1]}}</h6>
+                <div class="div-description"><p class="anime-description">{{anime[9]}}</p></div>
+                <div class="year-div"><p class="anime-year">{{anime[7]}}</p></div>
+                <div class="add-div"><button   type="submit" name="anime_id" value="{{anime[0]}}" class="button-add">+</button></div>
+            </div>
+            {%endfor%}
         </div>
-
+    </form>
+    </div>
+        
     </div>
     <div class="foot">
         <h5>Sthefany Angeles Rodriguez </h5>
     </div>
 </body>
-</html>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.ajax({
+            url: '/get_animes',
+            method: 'GET',
+            success: function(data) {
+                // Validate the data format
+                var validData = data.map(function(item) {
+                    if (typeof item.label === 'undefined') {
+                        return { label: item }; // Fallback to item itself if label is undefined
+                    }
+                    return item;
+                });
+
+                $("#anime-title").autocomplete({
+                    source: validData
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error("Error fetching anime data:", error);
+            }
+        });
+    });
+</script>
+{% endblock%}
+
+
+
