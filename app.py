@@ -28,9 +28,16 @@ def index():
         for anime in animes:
             if title.lower() in anime[1].lower():
                 return render_template('index.html', animes = [anime])
-        return render_template('index.html')
+        return render_template('index.html', animes=animes)
     return render_template('index.html', animes=animes)
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    return render_template('register.html')
+
+@app.route('/login', methods=['GET', 'POST'])
+def login():
+    return render_template('login.html')
 
 @app.route('/get_animes')
 def get_animes():
