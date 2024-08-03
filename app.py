@@ -14,14 +14,23 @@ app = Flask(__name__)
 def index():
     animes = fetch_anime_images()
     if request.method == 'POST':
+        id_anime = request.form.get('anime_id')
+        if id_anime:
+            if not id_anime:
+                return "No Anime ID received"
+            for anime in animes:
+                if int(id_anime) == int(anime[0]):
+                    return render_template('descripcion.html', animes = [anime])
+        
         title = request.form.get('title')
         if not title:
-            return render_template('index.html', animes=animes)
+            return redirect('/')
         for anime in animes:
             if title.lower() in anime[1].lower():
                 return render_template('index.html', animes = [anime])
         return render_template('index.html')
     return render_template('index.html', animes=animes)
+
 
 @app.route('/get_animes')
 def get_animes():

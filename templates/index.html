@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}My Site{% endblock %}</title>
-    <link rel="stylesheet" href="/static/styles.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+{% extends "layaout.html" %}
 
-</head>
+{% block header %}
+    Index
+{% endblock %}
+
+{% block main %}
 <body>
-    <div class="head">
-        <div class="left">
-            <img src="/static/images/AngRod_Search-removebg-preview.png" width="100 px">
-            <h1 class="Title">Angrod</h1>
-            <h3 class="SubTitle">Search</h3>  
-        </div>
     </div>
     <div class="main">
         <form action="/" method="post">
@@ -38,11 +27,11 @@
             -->
             {%for anime in animes%}
             <div class="picture-anime" style="background-image: url('data:image/jpeg;base64,{{anime[2]}}');">
-                <button class="button-description"><span class="button-text">+</span></button>
+                <button type="button" class="button-description"><span class="button-text">+</span></button>
                 <h6 class="anime-title">{{anime[1]}}</h6>
                 <div class="div-description"><p class="anime-description">{{anime[9]}}</p></div>
                 <div class="year-div"><p class="anime-year">{{anime[7]}}</p></div>
-                <div class="add-div"><button class="button-add">+</button></div>
+                <div class="add-div"><button   type="submit" name="anime_id" value="{{anime[0]}}" class="button-add">+</button></div>
             </div>
             {%endfor%}
         </div>
@@ -78,4 +67,7 @@
         });
     });
 </script>
-</html>
+{% endblock%}
+
+
+

@@ -1,27 +1,28 @@
-
-@font-face{
+@font-face {
     font-family: 'BlackMango';
     src: url(/static/fonts/BlackMango-SemiBold.ttf);
     font-weight: bold;
     font-style: bold;
 }
-html, body{
+
+html,
+body {
     height: 100%;
     margin: 0;
     font-family: BlackMango;
 }
-body{
+
+body {
     display: flex;
     flex-direction: column;
-    /*background-color: #270000;*/
-
 }
 
-.head{
+/*CSS FOR LAYAOUT PAGE*/
+.head {
     position: fixed;
     width: 100%;
     background-color: rgb(0, 0, 0);
-    display:flex;
+    display: flex;
     z-index: 1;
     justify-content: space-between;
     font-family: BlackMango;
@@ -29,41 +30,70 @@ body{
     box-shadow: 5px 5px 10px rgba(131, 0, 0, 0.8);
 
 }
-.left{
+
+.left {
     display: flex;
     align-items: center;
 }
-.Title
-{
-    color:aliceblue;
-    display:flex ;
+
+.right {
+    display: flex;
+    color: aliceblue;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    width: 20rem;
+    padding-right: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: aliceblue;
+    transition: ease-in-out 0.2s;
+}
+
+a:hover {
+    transition: ease-in-out 0.2s;
+    transform: scale(1.1);
+    color:#bb8b32ea;
+}
+.Title {
+    color: aliceblue;
+    display: flex;
     position: relative;
     left: -1.8rem;
 }
-.main{
+
+.main {
     flex: 1;
 }
-.SubTitle{
+
+.SubTitle {
     color: rgb(173, 9, 9);
     display: flex;
     position: relative;
     left: -1.6rem;
     top: 0.8rem;
 }
+
 .foot {
     height: 3.1rem;
     font-family: BlackMango;
     display: flex;
     position: fixed;
-    bottom: 0; 
-    width: 100%; 
+    bottom: 0;
+    width: 100%;
     z-index: 1;
     background-color: black;
     color: aliceblue;
     justify-content: center;
     align-items: center;
-    box-shadow: 1px 1px 15px rgba(121, 61, 61, 0.5); 
+    box-shadow: 1px 1px 15px rgba(121, 61, 61, 0.5);
 }
+
+/*CSS FOR INDEX PAGE*/
 input {
     width: 70%;
     font-size: 0.9rem;
@@ -80,8 +110,9 @@ input {
     border-radius: 0.25rem;
     transition: 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
-.forms{
-    
+
+.forms {
+
     color: white;
     text-align: center;
     flex-wrap: wrap;
@@ -91,11 +122,12 @@ input {
     display: flex;
     align-items: center;
     gap: 0.6rem;
-   background-color: #000000;
-   box-shadow: 1px 1px 15px rgba(145, 0, 0, 5);
+    background-color: #000000;
+    box-shadow: 1px 1px 15px rgba(145, 0, 0, 5);
 
-    
+
 }
+
 input:focus {
     color: #495057;
     font-size: 0.9rem;
@@ -104,6 +136,7 @@ input:focus {
     outline: 0;
     box-shadow: 0 0 0.1rem 0.2rem rgba(218, 0, 0, 0.25);
 }
+
 .button-submit {
     font-family: BlackMango;
     color: #fff;
@@ -119,10 +152,10 @@ input:focus {
     box-shadow: 0 0 0.1rem 0.2rem rgba(218, 0, 0, 0.25);
     font-size: 0.9rem;
     background-color: #000000;
-  
+
 }
 
-.back-anime{
+.back-anime {
     display: flex;
     justify-content: center;
     width: 100%;
@@ -132,13 +165,13 @@ input:focus {
     margin-bottom: 3.1rem;
 
 }
-.picture-anime{
+
+.picture-anime {
     margin: 2rem;
     display: flex;
     flex-direction: column;
     width: 16.5rem;
     height: 25.75rem;
-    /*background-image:url("/static/images/black-clover-picture.jpg");*/
     border-radius: 0.5rem;
     background-size: cover;
     box-shadow: 0 1rem 1.1rem 0.2rem rgba(0, 0, 0, 0.25);
@@ -146,21 +179,23 @@ input:focus {
     transition: ease-in-out 0.2s;
     overflow: hidden;
     position: relative;
-   
-
 }
-.picture-anime:hover{
+
+.picture-anime:hover {
     opacity: 100%;
     transition: ease-out 0.2s;
 }
-.picture-anime:hover .button-description{
+
+.picture-anime:hover .button-description {
     transition: ease-in-out 0.3s;
-    transform: scale(12.2);
+    transform: scale(12.5);
 }
-.picture-anime:hover:hover .button-text{
+
+.picture-anime:hover:hover .button-text {
     opacity: 0;
 }
-.button-description{
+
+.button-description {
     border-radius: 100%;
     border: #700000;
     position: relative;
@@ -175,49 +210,57 @@ input:focus {
     align-items: center;
     justify-content: center;
     transition: ease-in-out 0.2s;
-    
+
 }
-.anime-title{
+
+.anime-title {
     font-size: 1.3rem;
     display: flex;
     color: #ffffff;
-    position:relative;
-    top: 4.3rem;
+    position: relative;
+    top: 3.8rem;
     right: -1rem;
     opacity: 0;
 }
-.anime-description{
+
+.anime-description {
     font-size: 0.7rem;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #ffffff;
     opacity: 0;
 
 }
-.anime-year{
+
+.anime-year {
     opacity: 0;
     font-size: 1.0rem;
     display: flex;
     color: #ffffff;
-    position:absolute;
+    position: absolute;
     z-index: 10;
 }
-.picture-anime:hover .anime-title{
+
+.picture-anime:hover .anime-title {
     transition: ease-in-out 0.4s;
     opacity: 100%;
 }
-.picture-anime:hover .anime-description{
+
+.picture-anime:hover .anime-description {
     transition: ease-in-out 0.4s;
     opacity: 100%;
 }
-.picture-anime:hover .anime-year{
+
+.picture-anime:hover .anime-year {
     transition: ease-in-out 0.4s;
     opacity: 100%;
 }
-.picture-anime:hover .button-add{
+
+.picture-anime:hover .button-add {
     transition: ease-in-out 0.4s;
     opacity: 100%;
 }
-.button-add{
+
+.button-add {
     border-radius: 100%;
     border: #b6afaf;
     position: relative;
@@ -232,27 +275,8 @@ input:focus {
     transition: ease-in-out 0.2s;
     opacity: 0;
 }
-.back-anime-description{
-        display: flex;
-        padding-top:  100px;
-        background-color: #270000;
-        gap: 0.3rem;
-}
-.picture-anime-description{
-    margin: 2rem;
-    display: flex;
-    flex-direction: column;
-    width: 24.5rem;
-    height: 40.75rem;
-    background-image:url("/static/images/black-clover-picture.jpg");
-    border-radius: 0.5rem;
-    background-size: cover;
-    box-shadow: 0 0rem 1.1rem 0.2rem rgba(37, 167, 112, 0.25);
-    transition: ease-in-out 0.2s;
-    overflow: hidden;
-}
 
-.year-div{
+.year-div {
     display: flex;
     align-items: center;
     margin-left: 1rem;
@@ -261,7 +285,8 @@ input:focus {
     opacity: 1;
     z-index: 1;
 }
-.add-div{
+
+.add-div {
     display: flex;
     padding-left: 12rem;
     align-items: center;
@@ -270,14 +295,146 @@ input:focus {
     opacity: 1;
     z-index: 1;
 }
-.div-description{
-    margin-top: 0.3rem;
+
+.div-description {
+    margin-top: 0.6rem;
     align-self: center;
     justify-content: center;
-    height: 8.5rem;
+    min-height: 8.5rem;
     margin-bottom: 1rem;
     width: 15rem;
     opacity: 1;
     z-index: 1;
     overflow: hidden;
+}
+
+/*CSS FOR DESCRIPTION PAGE*/
+.back-anime-description {
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-bottom: 8rem;
+    background-color: #270000;
+    gap: 5.3rem;
+    overflow: hidden;
+    margin: 0;
+}
+
+.picture-anime-description {
+    margin-left: 2rem;
+    margin-top: 8rem;
+    width: 28.5rem;
+    height: 42.75rem;
+    background-image: url("/static/images/black-clover-picture.jpg");
+    border-radius: 0.5rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 0 0rem 1.1rem 0.2rem rgba(37, 167, 112, 0.25);
+    transition: ease-in-out 0.2s;
+}
+.block-information{
+    margin-top: 8rem;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 30rem;
+    overflow: hidden;
+    padding: 2rem;
+   border-radius: 2rem;
+    box-shadow: 0 0rem 1.1rem 0.2rem rgba(223, 248, 238, 0.25);
+ 
+    transition: ease-in-out 0.2s;
+}
+.anime-title-description {
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    color: #fafafa;
+    text-align: center; 
+    flex-direction: column;
+}
+.div-description-description {
+    color: #fafafa;
+    display: flex;
+    align-items: center;
+    min-height: 10.5rem;;
+    margin-bottom: 1rem;
+    width: 28.4rem;
+    opacity: 1;
+
+}
+
+.anime-description-description {
+    font-size: 0.9rem;
+    font-family: 'Times New Roman', Times, serif;
+    display: flex;
+    position: relative;
+    opacity: 100%;
+ 
+   
+}
+.other-information{
+    display: flex;
+    font-size: 0.8rem;
+    position: relative;
+    flex-wrap: wrap;
+    flex-direction: column;
+    color: #fafafa;
+    align-items: center;
+    justify-content: center;
+    justify-content:space-between;
+    width: 28rem;
+    transition: ease-in-out 0.2s;
+}
+h3{
+    color: rgb(255, 185, 127);
+    margin: 0;
+}
+p{
+    margin: 0.3rem;
+}
+.add-div-description {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: end;
+    font-size: 1.0rem;
+    height: 1rem;
+    width: 100%;
+   
+}
+.button-add-description {
+    border-radius: 100%;
+    border: #b6afaf;
+    position: relative;
+    background-color: #4d2f2f;
+    color: #ffffff;
+    width: 3rem;
+    top: -1rem;
+    left: 1rem;
+    height: 3rem;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-in-out 0.2s;
+    
+
+}
+
+.button-hover {
+    width: 7rem;
+    font-family: BlackMango;
+    border-radius: 5%;
+    height: 2rem;
+    font-size: 0.2rem;
+    box-shadow: 0 0rem 1.1rem 0.2rem rgb(97, 2, 2);
+    font-size: 3rem;
+    transform: scale(1.2);
+    background-color: #bb8b32ea;
 }
