@@ -1,23 +1,37 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, jsonify
 from flask_session import Session
 import sqlite3
 import base64
 
+
 app = Flask(__name__)
 
-# Conection to the database
+    #save_image_to_db('Tokyo Revenger','static/images/tokio-revenger-picture.jpg', 24, 'Action, Drama, School, Shounen', 'Manga', 'Ongoing', '2021', 8.70, 'The story follows Takem ichi Hanag ak i, a young man who discovers he has the ability to travel back in time. He uses this power to save his girlfriend from being killed by a gang, but soon finds himself caught up in a dangerous conflict with the gang.')
+    #save_image_to_db('Your Name','static/images/Your-name-picture.jpg', 1, 'Drama, Romance, School, Supernatural', 'Movie', 'Finished', '2016', 8.97, 'The story follows two high school students, Taki and Mitsuha, who mysteriously swap bodies. They communicate by leaving notes for each other and eventually fall in love.')
+    #save_image_to_db('Seishun Buta Yarou','static/images/Seishun-Buta-Yarou-picture.jpg', 1, 'Comedy, Romance, School, Supernatural', 'Manga', 'Finished', '2018', 8.39, 'The rare and inexplicable Puberty Syndrome is thought of as a myth. It is a rare disease which only affects teenagers, and its symptoms are so supernatural that hardly anyone recognizes it as a legitimate occurrence. However, high school student Sakuta Azusagawa knows from personal experience that it is very much real, and happens to be quite prevalent in his school.')
 
-
-@app.route('/')
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    
-    #save_image_to_db('Blue-Lock','static/images/blue-lock-picture.jpg', 24, 'Action, Shounen, Sports', 'Manga', 'Ongoing', '2021', 8.5, 'The project is ultimate goal is to turn one of the selected players into the star striker for the Japanese national team. To find the best participant, each diamond in the rough must compete against others through a series of solo and team competitions to rise to the top. Putting aside his ethical objections to the project, Isagi feels compelled to fight his way to the top, even if it means ruthlessly crushing the dreams of 299 aspiring young strikers.')
     animes = fetch_anime_images()
-    #image_base64 = get_image_from_db(int(animes[0][0]))
-    # Renders the index.html template with the anime and image.
+    if request.method == 'POST':
+        title = request.form.get('title')
+        if not title:
+            return render_template('index.html', animes=animes)
+        for anime in animes:
+            if title.lower() in anime[1].lower():
+                return render_template('index.html', animes = [anime])
+        return render_template('index.html')
     return render_template('index.html', animes=animes)
 
+@app.route('/get_animes')
+def get_animes():
+    animes = fetch_anime_images()
+    animes_title = []
+    for anime in animes:
+        animes_title.append({"label": anime[1]}) 
+    return jsonify(animes_title)
 
+# Function to fetch animes from the database.
 def fetch_anime_images():
     conn = sqlite3.connect('anime.db', check_same_thread=False)
     db = conn.cursor()

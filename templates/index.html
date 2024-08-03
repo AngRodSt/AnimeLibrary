@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}My Site{% endblock %}</title>
     <link rel="stylesheet" href="/static/styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
 </head>
 <body>
     <div class="head">
@@ -15,12 +19,12 @@
         </div>
     </div>
     <div class="main">
-        <form action="/index" method="post">
+        <form action="/" method="post">
             <div class="forms">
-                <input autocomplete="off" autofocus name="artist" placeholder="Name of the Anime" type="text">
+                <input id="anime-title" autofocus name="title" placeholder="Name of the Anime" type="text">
                 <button class="button-submit" type="submit">Search Anime</button> 
             </div>
-        </form>
+        
         <div class="back-anime">
             <!--
             <div class="picture-anime" style="background-image:url(/static/images/black-clover-picture.jpg)">
@@ -42,6 +46,7 @@
             </div>
             {%endfor%}
         </div>
+    </form>
     </div>
         
     </div>
@@ -49,4 +54,28 @@
         <h5>Sthefany Angeles Rodriguez </h5>
     </div>
 </body>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $.ajax({
+            url: '/get_animes',
+            method: 'GET',
+            success: function(data) {
+                // Validate the data format
+                var validData = data.map(function(item) {
+                    if (typeof item.label === 'undefined') {
+                        return { label: item }; // Fallback to item itself if label is undefined
+                    }
+                    return item;
+                });
+
+                $("#anime-title").autocomplete({
+                    source: validData
+                });
+            },
+            error: function(xhr, status, error) {
+                console.error("Error fetching anime data:", error);
+            }
+        });
+    });
+</script>
 </html>
