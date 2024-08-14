@@ -22,17 +22,17 @@
                 <button class="button-submit" type="submit">Search Anime</button> 
             </div>
         
-        <div class="back-anime">
-            {%for anime in animes%}
-            <div class="picture-anime-list" style="background-image: url('data:image/jpeg;base64,{{anime[2]}}');">
-                <button type="button" class="button-description"><span class="button-text">+</span></button>
-                <h6 class="anime-title">{{anime[1]}}</h6>
-                <div class="div-description"><p class="anime-description">{{anime[9]}}</p></div>
-                <div class="year-div"><p class="anime-year">{{anime[7]}}</p></div>
-                <div class="add-div"><button   type="submit" name="anime_id" value="{{anime[0]}}" class="button-add">+</button></div>
+            <div class="back-anime">
+                {%for anime in animes%}
+                <div class="picture-anime-list" style="background-image: url('data:image/jpeg;base64,{{anime[2]}}');">
+                    <button type="button" class="button-description"><span class="button-text">+</span></button>
+                    <div class="add-div"><button   type="submit" name="anime_id" value="{{anime[0]}}" class="button-add">+</button></div>
+                    <div class="year-div"><p class="anime-year">{{anime[7]}}</p></div>
+                    <h6 class="anime-title">{{anime[1]}}</h6>
+                    <div class="div-description"><p class="anime-description">{{anime[9]}}</p></div>
+                </div>
+                {%endfor%}
             </div>
-            {%endfor%}
-        </div>
     </form>
     
         

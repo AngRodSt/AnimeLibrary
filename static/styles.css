@@ -219,9 +219,11 @@ input:focus {
 .anime-title {
     font-size: 1.3rem;
     display: flex;
+    margin-bottom: 0;
     color: #ffffff;
+    width: 12rem;
     position: relative;
-    top: 3.8rem;
+    top: -3rem;
     right: -1rem;
     opacity: 0;
 }
@@ -231,6 +233,11 @@ input:focus {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #ffffff;
     opacity: 0;
+ 
+
+
+
+    
 
 }
 
@@ -239,7 +246,8 @@ input:focus {
     font-size: 1.0rem;
     display: flex;
     color: #ffffff;
-    position: absolute;
+    position: relative;
+    top: 16rem;
     z-index: 10;
 }
 
@@ -273,6 +281,7 @@ input:focus {
     border-radius: 100%;
     border: #b6afaf;
     position: relative;
+    top: 19rem;
     background-color: #4d2f2f;
     color: #ffffff;
     width: 3rem;
@@ -289,7 +298,6 @@ input:focus {
     display: flex;
     align-items: center;
     margin-left: 1rem;
-    background-color: #bb8b32ea;
     font-size: 1.0rem;
     opacity: 1;
     z-index: 1;
@@ -306,7 +314,7 @@ input:focus {
 }
 
 .div-description {
-    margin-top: 0.6rem;
+    margin-top: -2.5rem;
     align-self: center;
     justify-content: center;
     min-height: 8.5rem;
@@ -314,6 +322,7 @@ input:focus {
     width: 15rem;
     opacity: 1;
     z-index: 1;
+    
     overflow: hidden;
 }
 
@@ -545,10 +554,7 @@ p{
 .delete-div {
     border-radius: 100%;
     border: #460000;
-    position: relative;
-    right: -13.4rem;
-    top: -23.5rem;
-    background-color: #f51212;
+    margin-bottom: -2rem;
     color: #b4b4b4;
     width: 2rem;
     height: 2rem;
@@ -560,6 +566,9 @@ p{
 }
 .button-delete {
     border-radius: 100%;
+    position: relative;
+    top: -7rem;
+    right: -14rem;
     border: #b6afaf;
     background-color: #382e2a;
     color: #ffffff;
