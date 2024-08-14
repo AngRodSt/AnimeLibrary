@@ -10,6 +10,7 @@ body {
     height: 100%;
     margin: 0;
     font-family: BlackMango;
+    
 }
 
 body {
@@ -38,12 +39,11 @@ body {
 
 .right {
     display: flex;
-    background-color: #000000;
     flex-wrap: wrap;
     color: aliceblue;
     align-items: center;
     gap: 1rem;
-    justify-content: center;
+    justify-content: end;
     position: relative;
     z-index: 1;
     width: 20rem;
@@ -69,7 +69,7 @@ a:hover {
 }
 
 .main {
-    flex: 1;
+    /*flex: 1;*/
 }
 
 .SubTitle {
@@ -124,7 +124,8 @@ input {
     display: flex;
     align-items: center;
     gap: 0.6rem;
-    background-color: #000000;
+    background-image: url(/static/images/japan-background-digital-art.jpg);
+    background-size:cover;
     box-shadow: 1px 1px 15px rgba(145, 0, 0, 5);
 
 
@@ -177,10 +178,10 @@ input:focus {
     border-radius: 0.5rem;
     background-size: cover;
     box-shadow: 0 1rem 1.1rem 0.2rem rgba(0, 0, 0, 0.25);
-    opacity: 60%;
+    opacity: 70%;
     transition: ease-in-out 0.2s;
     overflow: hidden;
-    position: relative;
+    
 }
 
 .picture-anime:hover {
@@ -261,6 +262,12 @@ input:focus {
     transition: ease-in-out 0.4s;
     opacity: 100%;
 }
+.button-add:hover {
+    background-color: #bb8b32ea;
+    color: #ffffff;
+    transition: ease-in-out 0.2s;
+    transform: scale(1.1);
+}
 
 .button-add {
     border-radius: 100%;
@@ -317,8 +324,9 @@ input:focus {
     justify-content: center;
     align-items: center;
     display: flex;
-    padding-bottom: 8rem;
-    background-color: #270000;
+    padding-bottom: 10rem;
+    background-image: url(/static/images/japan1.jpg);
+    background-size: cover;
     gap: 5.3rem;
     overflow: hidden;
     margin: 0;
@@ -327,13 +335,13 @@ input:focus {
 .picture-anime-description {
     margin-left: 2rem;
     margin-top: 8rem;
-    width: 28.5rem;
-    height: 42.75rem;
+    width: 25.5rem;
+    height: 39.75rem;
     background-image: url("/static/images/black-clover-picture.jpg");
     border-radius: 0.5rem;
     background-size: cover;
     background-repeat: no-repeat;
-    box-shadow: 0 0rem 1.1rem 0.2rem rgba(37, 167, 112, 0.25);
+    box-shadow: 0 0rem 1.1rem 0.2rem rgba(139, 49, 8, 0.979);
     transition: ease-in-out 0.2s;
 }
 .block-information{
@@ -343,10 +351,11 @@ input:focus {
     align-items: center;
     justify-content: center;
     width: 30rem;
+    background-color: #000000c2;
     overflow: hidden;
     padding: 2rem;
-   border-radius: 2rem;
-    box-shadow: 0 0rem 1.1rem 0.2rem rgba(223, 248, 238, 0.25);
+    border-radius: 0.5rem;
+    box-shadow: 0 0rem 1.1rem 0.2rem rgba(139, 49, 8, 0.979);
  
     transition: ease-in-out 0.2s;
 }
@@ -444,23 +453,316 @@ p{
 .forms_Register {
 
     color: white;
+    display: flex;
+    
     text-align: center;
     flex-wrap: wrap;
-    padding-top: 18.75rem;
-    padding-bottom: 18.75rem;
     justify-content: center;
-    display: flex;
+    width: 31rem;
+    height: 30rem;
     flex-direction: column;
     align-items: center;
-    gap: 0.6rem;
-    background-color: #000000;
+    gap: 2rem;
+    background-color: #1f080896;
+    border-radius: 5rem;
     box-shadow: 1px 1px 15px rgba(145, 0, 0, 5);
 
 
 }
+.main_register{
+    position: relative;  
+    height: 100%;  
+    background-image: url(/static/images/japan-background-digital-art.jpg);
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 .forms_Register input{
-   
         width: 15rem;
+}
+
+/*CSS MYLIST*/
+.main-list {
+    display: flex;
+    flex: 1;
+    width: 100%;
+    min-height: 55rem;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #270000;
+    background-image: url(/static/images/japan2.jpg);
+    background-size: cover;
+}
+
+.picture-anime-list {
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+    width: 16.5rem;
+    height: 25.75rem;
+    border-radius: 0.5rem;
+    background-size: cover;
+    box-shadow: 0 1rem 1.1rem 0.2rem rgba(0, 0, 0, 0.25);
+    transition: ease-in-out 0.2s;
+    overflow: hidden;
+}
+.picture-anime-list:hover {
+    opacity:90%;
+    transition: ease-out 0.2s;
+}
+.picture-anime-list:hover .anime-title {
+    transition: ease-in-out 0.4s;
+    opacity: 100%;
+}
+
+.picture-anime-list:hover .anime-description {
+    transition: ease-in-out 0.4s;
+    opacity: 100%;
+}
+
+.picture-anime-list:hover .anime-year {
+    transition: ease-in-out 0.4s;
+    opacity: 100%;
+}
+
+.picture-anime-list:hover .button-add {
+    transition: ease-in-out 0.4s;
+    opacity: 100%;
+}
+
+.picture-anime-list:hover .button-description {
+    transition: ease-in-out 0.3s;
+    transform: scale(12.5);
+}
+
+.picture-anime-list:hover:hover .button-text {
+    opacity: 0;
+}
+
+.delete-div {
+    border-radius: 100%;
+    border: #460000;
+    position: relative;
+    right: -13.4rem;
+    top: -23.5rem;
+    background-color: #f51212;
+    color: #b4b4b4;
+    width: 2rem;
+    height: 2rem;
+    font-size: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-in-out 0.2s;
+}
+.button-delete {
+    border-radius: 100%;
+    border: #b6afaf;
+    background-color: #382e2a;
+    color: #ffffff;
+    width: 2rem;
+    height: 2rem;
+    font-size: 1rem;
+    font-style: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-in-out 0.2s;
+
+}
+.button-delete:hover {
+    background-color: #852222;
+    color: #000000;
+    transition: ease-in-out 0.2s;
+    transform: scale(1.1);
+}
+
+/*CSS FOR MODAL*/
+.flash-messages {
+    margin-top: 4.3rem;
+
+}
+
+.flash-message {
+    padding: 0.2rem 1rem;
+    border-radius: 5px;
+
+}
+
+.flash-message.error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.flash-message.success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.menu-element{
     
+    scale: 0;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    top: 4.5rem;
+    text-decoration: none;
+    width: 100%;
+    height: 5rem;
+    justify-content: center;
+    align-items: center;
+    font-size: 1;
+    gap: 1rem;
     
 }
+a{
+    color: white;
+    text-decoration: none;
+}
+
+
+.menu-button{
+    display: flex;
+    margin-left: 1rem;
+    height: 3rem;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    border: 0;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: ease-in-out 0.2s;
+}
+.menu-button:hover{
+    background-color: rgba(150, 147, 147, 0.623);
+}
+
+.active{
+   
+    scale: 1;
+    background-color: rgba(80, 8, 8, 0.74);
+}
+@media (min-width: 768px){
+    
+    .menu-element{
+        scale: 1;
+        z-index: 1;
+        position: fixed;
+        width: 95%;
+        right: 2rem;
+        justify-content: end;
+        top: -0.2rem;
+    
+    }
+    .menu-button{
+        display: none;
+    }
+    
+}
+/*CSS DIRECTORY*/
+.directory{
+   border-radius: 100%;
+    border: none;
+    position: relative;
+    color: #b4b4b4;
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-in-out 0.2s;
+
+}
+.directory:hover{
+    background-color: #7a3e3e;
+    color: #ffffff;
+    transition: ease-in-out 0.2s;
+    transform: scale(1.1);
+}
+.submit-search{
+    border-radius: 5rem;
+    border: #460000;
+    position: relative;
+    width: 15rem;
+    height: 2.5rem;
+    color: #b4b4b4;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3rem;
+    transition: ease-in-out 0.2s;
+}
+.submit-search input{
+    width: 10rem;
+    height: 1rem;
+    border-radius: 5rem;
+    position: relative;
+    border: none;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: ease-in-out 0.2s;
+}
+
+
+.submit-search input:focus{
+    box-shadow: none;
+}
+.directoryP{
+    background-image: url(/static/images/japan3.jpg);
+    display: flex;
+    flex: 1;
+    width: 100%;
+    min-height: 55rem;
+    padding-top: 5rem;
+    padding-bottom: 3rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #270000;
+    background-size: cover;}
+
+    /*CSS BUTTON PAGES DIRECTORY */
+    .pages-directory{
+        display: flex;
+        z-index: 1;
+        justify-content: end;
+        right: 1rem;
+        bottom: 4rem;
+        align-items: end;
+        position: fixed;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    .button-directory{
+        border-radius: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: #000000;
+        font-family: BlackMango;
+        box-shadow: 0 0rem 0.5rem 0.1rem rgba(0, 0, 0, 0.979);
+        background-color: #f3ac29;
+        color: #000000;
+        width: 8rem;
+        height: 2rem;
+        transition: ease-in-out 0.2s;
+    }
+    .button-directory:hover{
+        background-color: #77241eea;
+        color: #fff8f8;
+        transition: ease-in-out 0.2s;
+        transform: scale(1.1);
+    }
+    .button-directory a{
+        text-decoration: none;
+        color: #b11e1e;
+        justify-content: center;
+        align-items: center;
+    }

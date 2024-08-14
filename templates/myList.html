@@ -1,0 +1,40 @@
+{% extends "layaout.html" %}
+
+{% block header %}
+    Index
+{% endblock %}
+
+{% block main %}
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+
+    <form action="/myList" method="post">
+        <div class="main-list">
+            {%for anime in animes%}
+            <div class="picture-anime-list" style="background-image: url('data:image/jpeg;base64,{{anime[2]}}');">
+                <button type="button" class="button-description"><span class="button-text">+</span></button>
+                <h6 class="anime-title">{{anime[1]}}</h6>
+                <div class="div-description"><p class="anime-description">{{anime[4]}}</p></div>
+                <div class="year-div"><p class="anime-year">{{anime[3]}}</p></div>
+                <div class="add-div"><button   type="submit" name="anime_id" value="{{anime[0]}}" class="button-add">+</button></div>
+                <div class="delete-div"><button   type="submit" name="delete_id" value="{{anime[0]}}" class="button-delete">x</button></div>
+
+            </div>
+            {%endfor%}
+        </div>
+    </form>
+        <div class="foot">
+            <h5>Sthefany Angeles Rodriguez </h5>
+        </div>
+        
+    </body>
+    </html>
+    {% endblock%}

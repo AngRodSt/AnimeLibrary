@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,19 +10,31 @@
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
 </head>
+
 <body>
     <div class="head">
         <div class="left">
             <img src="/static/images/AngRod_Search-removebg-preview.png" width="100 px">
             <h1 class="Title">Angrod</h1>
-            <h3 class="SubTitle">Search</h3>  
+            <h3 class="SubTitle">Search</h3>
         </div>
         <div class="right">
+            <button id="menu-button" class="menu-button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24 " stroke-width="1.5"
+                    stroke="black" role="img">
+                    <path stroke-linecap="round" stroke-linejoin="round"
+                        d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+                </svg>
+            </button>
+        </div>
+
+        <div class="menu-element">
             <a href="/">Inicio</a>
-            <a href="/">Personal List</a>
-            <a href="/register">Register</a>
-            <a href="/login">Log in</a>
+            <a href="/directory/1">Directory</a>
+            <a href="/myList">My List</a>
+            <a href="/logout">Log out</a>
         </div>
     </div>
     <div class="main">
@@ -31,4 +44,33 @@
         <h5>Sthefany Angeles Rodriguez </h5>
     </div>
 </body>
+<script>
+    const menuButton = document.getElementById('menu-button');
+    const menuElement = document.querySelector('.menu-element');
+    const scaleValue = window.getComputedStyle(menuElement).transform;
+
+    function toggleMenu() {
+        if (window.innerWidth < 768) {
+            menuElement.classList.toggle('active');
+
+        }
+    }
+
+    function checkWindowSize() {
+        if (window.innerWidth >= 768) {
+            menuElement.classList.remove('active');
+        }
+    }
+
+    // Initial check
+    checkWindowSize();
+
+    // Check on window resize
+    window.addEventListener('resize', checkWindowSize);
+
+    // Toggle menu on button click
+    menuButton.addEventListener('click', toggleMenu);
+
+</script>
+
 </html>

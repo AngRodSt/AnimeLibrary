@@ -18,22 +18,66 @@
             <h3 class="SubTitle">Search</h3>  
         </div>
         <div class="right">
-            <a href="/">Inicio</a>
-            <a href="/">Personal List</a>
-            <a href="/register">Register</a>
-            <a href="/login">Log in</a>
+        <button  id="menu-button" class="menu-button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24 " stroke-width="1.5" stroke="black"  role="img">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"></path>
+            </svg>
+        </button>
         </div>
     </div>
-<body>
-    <div class="main">
+    <div class="menu-element">
+        <a href="/register">Sign Up</a>
+        <a href="/login">Log in</a>
+    </div>
+    
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div class="flash-messages">
+            {% for category, message in messages %}
+                <div class="flash-message {{ category }}">{{ message }}</div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    {% endwith %}
+    <div class="main_register">
+        <form action="/login" method="post">
         <div class="forms_Register">
-            <input  autofocus name="user" placeholder="User" type="text">
-            <input autofocus name="Password" placeholder="Password" type="text">
+            <input  autofocus  name="user" placeholder="User" type="text">
+            <input autofocus  name="password" placeholder="Password" type="password">
             <button class="button-submit" type="submit">Log In</button> 
         </div>
+        </form>
     </div>
     <div class="foot">
         <h5>Sthefany Angeles Rodriguez </h5>
     </div>
 </body>
+<script>
+    const menuButton = document.getElementById('menu-button');
+    const menuElement = document.querySelector('.menu-element');
+    const scaleValue = window.getComputedStyle(menuElement).transform;
+
+    function toggleMenu() {
+        if (window.innerWidth < 768) {
+            menuElement.classList.toggle('active');
+            
+        }
+    }
+
+    function checkWindowSize() {
+        if (window.innerWidth >= 768) {
+            menuElement.classList.remove('active');
+        }
+    }
+
+    // Initial check
+    checkWindowSize();
+
+    // Check on window resize
+    window.addEventListener('resize', checkWindowSize);
+
+    // Toggle menu on button click
+    menuButton.addEventListener('click', toggleMenu);
+
+</script>
 </html>

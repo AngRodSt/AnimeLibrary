@@ -1,0 +1,42 @@
+{% extends "directory.html" %}
+
+{% block header %}
+directory
+{% endblock %}
+
+{% block main %}
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+    <div class="flash-messages">
+        {% for category, message in messages %}
+        <div class="flash-message {{ category }}">{{ message }}</div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% endwith %}
+
+    <form action="/directory/2" method="post"> 
+        <div class="directoryP">
+            {%for anime in animes%}
+            <div class="picture-anime-list" style="background-image: url('data:image/jpeg;base64,{{anime[2]}}');">
+                <button type="button" class="button-description"><span class="button-text">+</span></button>
+                <h6 class="anime-title">{{anime[1]}}</h6>
+                <div class="div-description">
+                    <p class="anime-description">{{anime[9]}}</p>
+                </div>
+                <div class="year-div">
+                    <p class="anime-year">{{anime[7]}}</p>
+                </div>
+                <div class="add-div"><button type="submit" name="anime_id" value="{{anime[0]}}"
+                        class="button-add">+</button></div>
+            </div>
+            {%endfor%}
+        </div>
+    </form>
+    <div class="pages-directory">
+        <a class="button-directory" href="/directory/1">Previous Page</a></button>
+        <a class="button-directory">Next Page</a></button>
+    </div>
+
+{%endblock%}
